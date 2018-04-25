@@ -1,5 +1,6 @@
 package com.app.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,5 +16,6 @@ public class MovieDto {
     private Long id;
     private String title;
     private String genre;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate release;
 }
