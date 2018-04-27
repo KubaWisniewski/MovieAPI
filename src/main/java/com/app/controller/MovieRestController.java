@@ -44,7 +44,10 @@ public class MovieRestController {
             throw new IllegalArgumentException("DATES FORMAT IS NOT CORRECT");
         }
     }
-
+    @GetMapping("title/{title}")
+    public List<MovieDto> getAllMoviesByTitle(@PathVariable String title){
+        return movieService.findAllMoviesByTitle(title);
+    }
     @PostMapping("/add")
     public MovieDto addMovie(@RequestBody MovieDto movieDto) {
         return movieService.addOrUpdateMovie(movieDto);
@@ -53,5 +56,9 @@ public class MovieRestController {
     @DeleteMapping("/delete")
     public MovieDto deleteMovie(@RequestBody Long id) {
         return movieService.deleteMovie(id);
+    }
+    @PutMapping("/update")
+    public MovieDto updateMovie(@RequestBody MovieDto movieDto){
+        return movieService.addOrUpdateMovie(movieDto);
     }
 }
